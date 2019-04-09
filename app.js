@@ -95,7 +95,11 @@ app.get('/connect/callback', function(req, res) {
                     });
                     console.log("Three")
                     newUser.save()
-                
+                    .then( () => res.status(200).send("Your account was successfuly authenticated"))
+                    .catch((err) => {
+                        console.log('error in newuser save of connectcallback');
+                        res.status(400).json({error:err});
+                    })
                     console.log("Four")
                 }
             });
