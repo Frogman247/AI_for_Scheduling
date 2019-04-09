@@ -100,6 +100,7 @@ app.get('/connect/callback', function(req, res) {
                         console.log('error in newuser save of connectcallback');
                         res.status(400).json({error:err});
                     })
+                    console.log("Four")
                 }
             });
         }
