@@ -83,7 +83,9 @@ app.get('/connect/callback', function(req, res) {
                     //when a person
                     console.log("this is googleplus person object", person);
                     var tempEmail = person.emails[0].value;
+                    console.log("One")
                     let auth_id = JSON.parse(decodeURIComponent(req.query.state));
+                    console.log("Two")
                     var newUser = new User({
                         token: tokens,
                         slackID: slackID, //TODO: ALSO store slackname so that you can easily add your own meetings to your calendars too
@@ -91,7 +93,9 @@ app.get('/connect/callback', function(req, res) {
                         email: tempEmail,
                         pendingInvites: []
                     });
+                    console.log("Three")
                     newUser.save()
+                    console.log("Four")
                     .then( () => res.status(200).send("Your account was successfuly authenticated"))
                     .catch((err) => {
                         console.log('error in newuser save of connectcallback');
