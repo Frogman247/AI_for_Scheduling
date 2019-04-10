@@ -67,7 +67,7 @@ app.get('/connect/callback', function(req, res) {
     console.log("this is oauth", oauth2Client);
     oauth2Client.getToken(code, function (err, tokens) {
         if(err) {
-            console.log(err)
+            console.log("ten")
         } else {
             //set credentials. not entirely sure what this does but necessary for google plus
             //when a person gives access to their google calendar, we also make a request to google plus
@@ -78,7 +78,7 @@ app.get('/connect/callback', function(req, res) {
             var plus = google.plus('v1');
             plus.people.get({auth: oauth2Client, userId: 'me'}, function(err, person){
                 if(err){
-                    console.log(err)
+                    console.log("nine")
                 } else {
                     //when a person
                     console.log("this is googleplus person object", person);
