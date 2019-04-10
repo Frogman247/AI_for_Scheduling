@@ -45,6 +45,7 @@ app.get('/oauth', function(req, res){
         }))
     });
     slackID = req.query.auth_id
+    console.log(url)
     res.redirect(url);
 })
 
